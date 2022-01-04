@@ -15,16 +15,16 @@ describe BankAccount do
 
   describe '#deposit' do
     it 'should increase the bank balance by the deposited amount' do
-        account.deposit(5000)
+        account.deposit(05-10-2022, 5000)
         expect(account.balance).to eq 5000
     end
   end
 
   describe '#withdraw' do
     it 'should decrease the bank balance by the withdrawn amount' do
-        account.deposit(5000)
-        account.withdraw(500)
-        account.deposit(20)
+        account.deposit(05-10-2022, 5000)
+        account.withdraw(05-10-2022, 500)
+        account.deposit(10-10-2022, 20)
         expect(account.balance).to eq 4520
     end
   end

@@ -8,11 +8,11 @@ class BankAccount
         @bank_statement = []
     end 
 
-    def deposit(amount)
+    def deposit(date, amount)
         @balance += amount
     end
 
-    def withdraw(amount)
+    def withdraw(date, amount)
         @balance -= amount
     end 
 end 
