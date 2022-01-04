@@ -2,11 +2,15 @@ require './lib/bank_account'
 
 describe BankAccount do
 
-  describe '#initialize' do
+  describe '#initialize_account' do
     it 'should have a default balance of 0' do
       account = BankAccount.new
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
     end
+
+    it 'should have a bank statement' do
+        expect(account.bank_statement).to eq([])
+    end 
   end
 
   describe '#deposit' do

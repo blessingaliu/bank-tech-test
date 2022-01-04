@@ -23,3 +23,8 @@ def withdraw_money
     account.withdraw(20)
     p account.balance
 end
+
+def check_balance
+    account = BankAccount.new
+    p account.balance
+end
