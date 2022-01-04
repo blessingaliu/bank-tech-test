@@ -12,8 +12,8 @@ describe BankAccount do
   describe '#deposit' do
   it 'should increase the bank balance by the deposited amount' do
     account = BankAccount.new
-    account.deposit(1000)
-    expect(account.balance).to eq 1000
+    account.deposit(5000)
+    expect(account.balance).to eq 5000
   end
 end
 
