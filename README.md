@@ -26,10 +26,30 @@ date || credit || debit || balance
 
 ## How I approached this test 
 - First I attempted to do a class domain model diagram for the different classes required 
-![bank tech test diagram](https://user-images.githubusercontent.com/77657186/148060562-2d5134c5-e469-4657-bb7f-54dc13c5c6f6.jpeg)
+![Initial class diagram](https://user-images.githubusercontent.com/77657186/148060562-2d5134c5-e469-4657-bb7f-54dc13c5c6f6.jpeg)
+
+<br>
+
+- Then I wrote user stories according to the requirements (i might add more to them later if necessary)
+``` 
+As a client 
+So that I can govern my wealth
+I want to open a bank account
+
+As a client 
+So that I can add money to my bank account 
+I want to be able to make a deposit to my account 
+
+As a client
+So that I can take money out of my bank account
+I want to be able to make a withdrawal out of my account 
+
+As a client 
+So that I can see my transactions
+I want to be able to print my bank statement which has my bank balance
+```
 
 
 ## Tech used 
-- JavaScript
-- Jest 
-- Node
+- Ruby
+- Rspec
