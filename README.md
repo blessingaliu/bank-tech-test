@@ -26,6 +26,7 @@ date || credit || debit || balance
 
 ## How I approached this test 
 - First I attempted to do a class domain model diagram for the different classes required 
+![bank tech test diagram](https://user-images.githubusercontent.com/77657186/148060562-2d5134c5-e469-4657-bb7f-54dc13c5c6f6.jpeg)
 
 
 ## Tech used 
