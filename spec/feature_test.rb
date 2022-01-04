@@ -22,4 +22,4 @@ def withdraw_money
     account.deposit(500)
     account.withdraw(20)
     p account.balance
-  end
+end
