@@ -9,7 +9,17 @@ describe Transaction do
 
     it 'should have a date' do
       transaction = Transaction.new('05-10-2022', 5000, 5000)
-      expect(transaction.date).to be('05-10-2022')
+      expect(transaction.date).to include('05-10-2022')
+    end
+
+    it 'should have an amount' do
+        transaction = Transaction.new('05-10-2022', 5000, 5000)
+        expect(transaction.amount).to eq(5000)
+    end
+
+    it 'should have a balance' do
+        transaction = Transaction.new('05-10-2022', 5000, 5000)
+        expect(transaction.balance).to eq(5000)
     end
   end
 

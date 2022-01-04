@@ -29,4 +29,10 @@ describe BankAccount do
     end
   end
 
+  describe 'adding transaction' do
+    it 'should add a transaction to the bank statement' do
+        expect(account.bank_statement).to include({date: '10-01-2012', amount: 1000, balance: 1000})
+    end
+  end 
+
 end
