@@ -1,4 +1,4 @@
-require 'BankAccount'
+require './lib/bank_account'
 
 describe BankAccount do
 
