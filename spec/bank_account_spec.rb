@@ -2,6 +2,7 @@ require './lib/bank_account'
 
 describe BankAccount do
     subject(:account) {described_class.new}
+    let(:statement) { double :statement }
 
   describe '#initialize_account' do
     it 'should have a default balance of 0' do
@@ -35,4 +36,10 @@ describe BankAccount do
     end
   end 
 
+  describe '#print_statement' do
+    it 'should print statement to view transactions' do
+        expect(statement).to receive(:print)
+        bank_account.print_statement
+    end
+  end
 end
