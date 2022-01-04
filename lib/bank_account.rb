@@ -6,4 +6,5 @@ class BankAccount
     def initialize
         @balance = DEFAULT_BALANCE
     end 
+
 end 
