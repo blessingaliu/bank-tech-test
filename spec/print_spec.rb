@@ -10,8 +10,8 @@ describe Print do
 
     describe '#print_transactions' do
         it 'should print the statement in the specified format' do
-            expected_heading = 'date || credit || debit || balance\n'
-            expected_transaction = '05-10-2022 || 5000.00 || 5000.00\n'
+            expected_heading = 'date || credit || debit || balance'
+            expected_transaction = '05-10-2022 || 5000.00 || 5000.00'
             bank_statement = [transaction1]
             expected_statement = expected_heading + expected_transaction
             expect { print.print_transactions(bank_statement) }.to output(expected_statement).to_stdout
