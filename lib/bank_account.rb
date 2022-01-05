@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require './lib/transaction'
-require './lib/print'
+require "./lib/transaction"
+require "./lib/print"
 
 class BankAccount
   attr_reader :balance, :bank_statement

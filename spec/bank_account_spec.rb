@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require './lib/bank_account'
+require "./lib/bank_account"
 
 describe BankAccount do
   subject(:account) { described_class.new(transaction_class: mock_transaction_class) }
 
   let(:mock_transaction_class) { double(:mock_transaction_class, new: transaction) }
-  let(:transaction) { double(:transaction, date: '05-10-2022', amount: '5000.00', balance: '5000.00') }
+  let(:transaction) { double(:transaction, date: "05-10-2022", amount: "5000.00", balance: "5000.00") }
   let(:print) { double(:print) }
 
   describe '#initialize_account' do
