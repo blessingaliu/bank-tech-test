@@ -1,3 +1,6 @@
+require './lib/transaction'
+require './lib/print'
+
 class BankAccount 
     attr_reader :balance, :bank_statement
 
@@ -7,6 +10,7 @@ class BankAccount
         @balance = DEFAULT_BALANCE
         @bank_statement = []
         @transaction_class = transaction_class
+        @print = Print.new
     end 
 
     def deposit(date, amount)
@@ -20,7 +24,7 @@ class BankAccount
     end 
 
     def print_statement
-        @bank_statement
+        @print.print_transactions(@bank_statement)
     end
 
     private
