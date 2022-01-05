@@ -9,19 +9,19 @@ describe BankAccount do
   let(:transaction) { double(:transaction, date: "05-10-2022", amount: "5000.00", balance: "5000.00") }
   let(:print) { double(:print) }
 
-  describe '#initialize_account' do
-    it 'should have a default balance of 0' do
+  describe "#initialize_account" do
+    it "should have a default balance of 0" do
       expect(account.balance).to eq BankAccount::DEFAULT_BALANCE
     end
 
-    it 'should have a bank statement' do
+    it "should have a bank statement" do
       expect(account.bank_statement).to eq([])
     end
   end
 
-  describe '#deposit' do
-    it 'should increase the bank balance by the deposited amount' do
-      account.deposit('05-10-2022', 5000)
+  describe "#deposit" do
+    it "should increase the bank balance by the deposited amount" do
+      account.deposit("05-10-2022", 5000)
       expect(account.balance).to eq 5000
     end
   end

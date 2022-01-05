@@ -14,8 +14,8 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 
-require 'simplecov'
-require 'simplecov-console'
+require "simplecov"
+require "simplecov-console"
 SimpleCov.formatter = SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start
 
