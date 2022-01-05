@@ -5,11 +5,10 @@ require "./lib/transaction"
 require "./lib/bank_account"
 
 # create_new_account
-  BankAccount.new
+  account = BankAccount.new
 
 # check_default_balance
   account.balance
-
 
 # deposit_money
   account.deposit("05-10-2022", 5000)
@@ -17,13 +16,13 @@ require "./lib/bank_account"
   account.balance
 
 # withdraw_money
-  account.withdraw("10-10-2022", 20)
+  account.withdraw("10-10-2022", 200)
   account.balance
 
-# new_transaction
-  Transaction.new(
-    "05-10-2022", 5000, 5000
-  )
+# new_transaction - private 
+  # transaction = Transaction.new(
+  #   "05-10-2022", 5000, 5000
+  # )
 
 # check_current_balance
   account.balance
@@ -40,4 +39,4 @@ require "./lib/bank_account"
   account.deposit("06-10-2022", 500)
   account.withdraw("10-10-2022", 20)
   account.bank_statement
-  account.balance
+  account.print_statement 
