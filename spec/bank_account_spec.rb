@@ -38,10 +38,14 @@ describe BankAccount do
 #     end
 #   end 
 
-#   describe '#print_statement' do
-#     it 'should print statement to view transactions' do
-#         expect(statement).to receive(:print)
-#         bank_account.print_statement
-#     end
-#   end
+  describe '#print_statement' do
+    it 'should respond to print_statement' do
+        expect(account).to respond_to(:print_statement)
+    end
+
+    it 'should print statement to view transactions' do
+        mock_statement = account.bank_statement
+        expect(account.print_statement).to eq(mock_statement)
+    end
+ end
 end

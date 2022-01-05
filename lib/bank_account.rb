@@ -19,6 +19,10 @@ class BankAccount
         new_transaction(date, amount, @balance)
     end 
 
+    def print_statement
+        @bank_statement
+    end
+
     private
 
     def new_transaction(date, amount, balance)
