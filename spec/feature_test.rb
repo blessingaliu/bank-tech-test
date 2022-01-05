@@ -35,3 +35,12 @@ def new_transaction
         '05-10-2022', 5000, 5000)
     p transaction
 end 
+
+def check_bank_statement 
+    account = BankAccount.new
+    account.deposit('05-10-2022', 5000)
+    account.deposit('06-10-2022', 500)
+    account.withdraw('10-10-2022', 20)
+    p account.bank_statement
+end 
+
