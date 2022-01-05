@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require './lib/transaction'
 
 describe Transaction do
-
   describe '#initialize' do
     before do
       transaction = Transaction.new('05-10-2022', 5000, 5000)
@@ -13,14 +14,13 @@ describe Transaction do
     end
 
     it 'should have an amount' do
-        transaction = Transaction.new('05-10-2022', 5000, 5000)
-        expect(transaction.amount).to eq(5000)
+      transaction = Transaction.new('05-10-2022', 5000, 5000)
+      expect(transaction.amount).to eq(5000)
     end
 
     it 'should have a balance' do
-        transaction = Transaction.new('05-10-2022', 5000, 5000)
-        expect(transaction.balance).to eq(5000)
+      transaction = Transaction.new('05-10-2022', 5000, 5000)
+      expect(transaction.balance).to eq(5000)
     end
   end
-
 end
