@@ -48,8 +48,18 @@ As a client
 So that I can see my transactions
 I want to be able to print my bank statement which has my bank balance
 ```
+- Then I worked through all the user stories, testing first to implement the requirements.
+
 
 
 ## Tech used 
 - Ruby
 - Rspec
+- Simplecov
+- Rubocop
+
+
+## How to run 
+- Clone this repository 
+- Run bundle 
+- Run rspec 
