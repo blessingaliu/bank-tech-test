@@ -1,5 +1,6 @@
 require './lib/bank_account'
 require './lib/transaction'
+require './lib/print'
 
 def create_new_account
     account = BankAccount.new
