@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "./lib/print"
+require "./lib/printer"
 require "./lib/transaction"
 require "./lib/bank_account"
 

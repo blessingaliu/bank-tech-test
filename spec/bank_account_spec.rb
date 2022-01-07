@@ -7,7 +7,7 @@ describe BankAccount do
 
   let(:mock_transaction_class) { double(:mock_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction, date: "05-10-2022", amount: "5000.00", balance: "5000.00") }
-  let(:print) { double(:print) }
+  let(:printer) { double(:printer) }
 
   describe "#initialize_account" do
     it "should have a default balance of 0" do
@@ -43,7 +43,7 @@ describe BankAccount do
     it 'should send the statement to be printed' do
       account.deposit('05-10-2022', 5000)
       expected = [transaction]
-      allow(print).to receive(:print_transactions) { expected }
+      allow(printer).to receive(:print_transactions) { expected }
       expect(account.print_statement).to eq(expected)
     end
   end

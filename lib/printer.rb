@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Print
+class Printer
   def print_transactions(bank_statement)
     print_heading
     bank_statement.each do |transaction|
