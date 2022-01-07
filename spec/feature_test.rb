@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "./lib/printer"
 require "./lib/bank_account"
 
 # create_new_account

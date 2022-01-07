@@ -51,6 +51,72 @@ I want to be able to print my bank statement which has my bank balance
 - Then I worked through all the user stories, testing first to implement the requirements.
 
 
+## How the app should run 
+```irb
+3.0.2 :001 > require "./lib/bank_account"
+ => true 
+3.0.2 :002 > account = BankAccount.new
+ => 
+#<BankAccount:0x0000000142106cb8
+... 
+3.0.2 :003 > account.deposit("05-10-2022", 5000)
+[#<Transaction:0x00000001450d14e8
+  @balance=5000,
+  @credit=5000,
+  @date="05-10-2022",
+  @debit=0>] 
+3.0.2 :004 > account.deposit("06-10-2022", 500)
+ => 
+[#<Transaction:0x00000001450d14e8
+  @balance=5000,
+  @credit=5000,
+  @date="05-10-2022",
+  @debit=0>,
+ #<Transaction:0x00000001450c2c90
+  @balance=5500,
+  @credit=500,
+  @date="06-10-2022",
+3.0.2 :005 > account.withdraw("10-10-2022", 200)
+[#<Transaction:0x00000001450d14e8
+  @balance=5000,
+  @credit=5000,
+  @date="05-10-2022",
+  @debit=0>,
+ #<Transaction:0x00000001450c2c90
+  @balance=5500,
+  @credit=500,
+  @date="06-10-2022",
+  @debit=0>,
+ #<Transaction:0x00000001450bac98
+  @balance=5300,
+  @credit=0,
+  @date="10-10-2022",
+  @debit=200>] 
+3.0.2 :006 > account.balance
+ => 5300 
+3.0.2 :007 > account.print_statement
+date || credit || debit || balance
+10-10-2022 || 0 || 200 || 5300
+06-10-2022 || 500 || 0 || 5500
+05-10-2022 || 5000 || 0 || 5000
+ => 
+[#<Transaction:0x00000001450bac98
+  @balance=5300,
+  @credit=0,
+  @date="10-10-2022",
+  @debit=200>,
+ #<Transaction:0x00000001450c2c90
+  @balance=5500,
+  @credit=500,
+  @date="06-10-2022",
+  @debit=0>,
+ #<Transaction:0x00000001450d14e8
+  @balance=5000,
+  @credit=5000,
+  @date="05-10-2022",
+  @debit=0>] 
+```
+
 
 ## Tech used 
 - Ruby
