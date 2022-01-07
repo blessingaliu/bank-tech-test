@@ -3,20 +3,23 @@
 require "./lib/transaction"
 
 describe Transaction do
+  subject(:transaction) { described_class.new("05-10-2022", 0, 5000, 5000) }
+
   describe "#initialize" do
 
     it "should have a date" do
-      transaction = Transaction.new("05-10-2022", 5000, 5000)
       expect(transaction.date).to include("05-10-2022")
     end
 
+    it "should have a credit amount" do
+      expect(transaction.credit).to eq(0)
+    end
+
     it "should have a debit amount" do
-      transaction = Transaction.new("05-10-2022", 5000, 5000)
       expect(transaction.debit).to eq(5000)
     end
 
     it "should have a balance" do
-      transaction = Transaction.new("05-10-2022", 5000, 5000)
       expect(transaction.balance).to eq(5000)
     end
   end
