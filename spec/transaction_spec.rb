@@ -10,9 +10,9 @@ describe Transaction do
       expect(transaction.date).to include("05-10-2022")
     end
 
-    it "should have an amount" do
+    it "should have a debit amount" do
       transaction = Transaction.new("05-10-2022", 5000, 5000)
-      expect(transaction.amount).to eq(5000)
+      expect(transaction.debit).to eq(5000)
     end
 
     it "should have a balance" do

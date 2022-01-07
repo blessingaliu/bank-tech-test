@@ -22,8 +22,8 @@ describe Printer do
   
     it "should first print out the most recent transaction" do
       expected_heading = "date || credit || debit || balance\n"
-      expected_transaction = "05-10-2022 || 5000.00 || 5000.00\n"
-      expected_transaction2 = "10-10-2022 || 1000.00 || 6000.00\n"
+      expected_transaction = "05-10-2022 || || 5000.00 || 5000.00\n"
+      expected_transaction2 = "10-10-2022 || || 1000.00 || 6000.00\n"
       bank_statement = [transaction1, transaction2]
       expected_statement = expected_heading + expected_transaction2 + expected_transaction
       expect { printer.print_transactions(bank_statement) }.to output(expected_statement).to_stdout
