@@ -8,31 +8,39 @@ class BankAccount
 
   DEFAULT_BALANCE = 0
 
-  def initialize(transaction_class: Transaction)
+  def initialize(transaction_class: Transaction, printer_class: Printer)
     @balance = DEFAULT_BALANCE
     @bank_statement = []
     @transaction_class = transaction_class
-    @printer = Printer.new
+    @printer_class = printer_class
   end
 
-  def deposit(date, amount)
-    @balance += amount
-    new_transaction(date, amount, @balance)
+  def deposit(date, credit)
+    debit = 0
+    update_balance(credit, -debit)
+    new_transaction(date, credit, debit, @balance)
   end
 
-  def withdraw(date, amount)
-    @balance -= amount
-    new_transaction(date, amount, @balance)
+  def withdraw(date, debit)
+    credit = 0
+    update_balance(credit, -debit)
+    new_transaction(date, credit, debit, @balance)
   end
 
   def print_statement
-    @printer.print_transactions(@bank_statement)
+    printer = @printer_class.new
+    printer.print_transactions(@bank_statement)
   end
 
   private
 
-  def new_transaction(date, amount, balance)
-    transaction = @transaction_class.new(date, amount, balance)
+  def update_balance(credit, debit)
+    @balance += credit
+    @balance += debit
+  end
+
+  def new_transaction(date, credit, debit, balance)
+    transaction = @transaction_class.new(date, credit, debit, balance)
     @bank_statement << transaction
   end
 end
