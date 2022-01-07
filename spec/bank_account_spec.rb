@@ -3,11 +3,12 @@
 require "./lib/bank_account"
 
 describe BankAccount do
-  subject(:account) { described_class.new(transaction_class: mock_transaction_class) }
+  subject(:account) { described_class.new(transaction_class: mock_transaction_class, printer_class: mock_printer_class) }
 
   let(:mock_transaction_class) { double(:mock_transaction_class, new: transaction) }
   let(:transaction) { double(:transaction, date: "05-10-2022", credit: "", debit: "5000.00", balance: "5000.00") }
-  let(:printer) { double(:printer) }
+  let(:mock_printer_class) { double(:mock_printer_class, new: printer) }
+  let(:printer) { double(:printer, print_transactions: transaction) }
 
   describe "#initialize_account" do
     it "should have a default balance of 0" do
@@ -20,18 +21,40 @@ describe BankAccount do
   end
 
   describe "#deposit" do
-    it "should increase the bank balance by the deposited amount" do
+    before do
       account.deposit("05-10-2022", 5000)
+    end
+
+    it "should increase the bank balance by the deposited amount" do
       expect(account.balance).to eq 5000
+    end
+
+    it "should create a transaction with a credit amount" do
+      expect(mock_transaction_class).to have_received(:new)
+      .with("05-10-2022", 5000, 0, 5000)
+    end
+
+    it 'should be recorded in the bank statement' do
+      expect(account.bank_statement).to include(transaction)
     end
   end
 
   describe '#withdraw' do
-    it 'should decrease the bank balance by the withdrawn amount' do
-      account.deposit('05-10-2022', 5000)
+    before do
       account.withdraw('05-10-2022', 500)
-      account.deposit('10-10-2022', 20)
-      expect(account.balance).to eq 4520
+    end
+
+    it 'should decrease the bank balance by the withdrawn amount' do
+      expect(account.balance).to eq -500
+    end
+
+    it 'should create a transaction with a debit amount' do
+      expect(mock_transaction_class).to have_received(:new)
+      .with('05-10-2022', 0, 500, -500)
+    end 
+
+    it 'should get recorded in the bank statement' do
+      expect(account.bank_statement).to include(transaction)
     end
   end
 
@@ -42,9 +65,8 @@ describe BankAccount do
 
     it 'should send the statement to be printed' do
       account.deposit('05-10-2022', 5000)
-      expected = [transaction]
-      allow(printer).to receive(:print_transactions) { expected }
-      expect(account.print_statement).to eq(expected)
+      account.print_statement
+      expect(mock_printer_class).to have_received(:new)
     end
   end
 end
