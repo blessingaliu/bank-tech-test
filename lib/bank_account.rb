@@ -15,13 +15,13 @@ class BankAccount
     @printer_class = printer_class
   end
 
-  def deposit(date, credit)
+  def deposit(date = Date.today.to_s, credit)
     debit = 0
     update_balance(credit, -debit)
     new_transaction(date, credit, debit, @balance)
   end
 
-  def withdraw(date, debit)
+  def withdraw(date = Date.today.to_s, debit)
     credit = 0
     update_balance(credit, -debit)
     new_transaction(date, credit, debit, @balance)
@@ -39,7 +39,7 @@ class BankAccount
     @balance += debit
   end
 
-  def new_transaction(date, credit, debit, balance)
+  def new_transaction(date = Date.today.to_s, credit, debit, balance)
     transaction = @transaction_class.new(date, credit, debit, balance)
     @bank_statement << transaction
   end
