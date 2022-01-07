@@ -52,7 +52,8 @@ I want to be able to print my bank statement which has my bank balance
 
 
 ## How the app should run (screenshots)
-
+<img width="959" alt="Screenshot 2022-01-07 at 12 40 56" src="https://user-images.githubusercontent.com/77657186/148545878-48df5668-fefd-4b41-8fb1-3fabcb058a2d.png">
+<img width="962" alt="Screenshot 2022-01-07 at 12 40 14" src="https://user-images.githubusercontent.com/77657186/148545904-225952c1-1095-470b-911d-e9bbf45d68fc.png">
 
 
 ## Test coverage 
